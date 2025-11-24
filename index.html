@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none;
+            /* Removed cursor: none; */
         }
 
         :root {
@@ -37,6 +37,8 @@
             color: var(--text);
             background-color: var(--light);
             overflow-x: hidden;
+            /* Added normal cursor */
+            cursor: default;
         }
 
         h1, h2, h3, h4 {
@@ -109,6 +111,8 @@
             border: none;
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
+            /* Added pointer cursor for buttons */
+            cursor: pointer;
         }
 
         .btn::before {
@@ -157,29 +161,7 @@
             transform: scaleX(1);
         }
 
-        /* Custom Cursor */
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--secondary);
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.2s ease, background 0.5s ease;
-            mix-blend-mode: difference;
-        }
-
-        .cursor-follower {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 182, 193, 0.2);
-            pointer-events: none;
-            z-index: 9998;
-            transition: transform 0.6s ease, background 0.5s ease;
-        }
+        /* Removed Custom Cursor Styles */
 
         /* Header Styles */
         header {
@@ -532,6 +514,7 @@
             transition: var(--transition);
             box-shadow: 0 5px 15px var(--shadow);
             font-family: 'Poppins', sans-serif;
+            cursor: pointer;
         }
 
         .filter-btn.active, .filter-btn:hover {
@@ -985,9 +968,7 @@
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+    <!-- Removed Custom Cursor Elements -->
 
     <!-- Header -->
     <header>
@@ -1291,36 +1272,7 @@
     </div>
 
     <script>
-        // Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-
-        // Hover effects for cursor
-        const hoverElements = document.querySelectorAll('a, button, .gallery-item, .destination-card, .note-card, .highlight-card, .social-icon');
-        
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(2)';
-                cursorFollower.style.transform = 'scale(1.5)';
-                cursorFollower.style.background = 'rgba(255, 182, 193, 0.4)';
-            });
-            
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursorFollower.style.transform = 'scale(1)';
-                cursorFollower.style.background = 'rgba(255, 182, 193, 0.2)';
-            });
-        });
+        // Removed Custom Cursor JavaScript
 
         // Header scroll effect
         window.addEventListener('scroll', () => {
